@@ -1,0 +1,24 @@
+{
+  "name": "protractor-practice",
+  "version": "0.0.1",
+  "description": "",
+  "main": "e2e/protractor.conf.js",
+  "scripts": {
+    "postinstall": "webdriver-manager update --ignore_ssl=true",
+    "test": "protractor e2e/protractor.conf.js"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@types/node": "^10.17.5",
+    "@types/jasmine": "~2.8.16",
+    "@types/jasminewd2": "~2.0.3",
+    "blue-harvest": "^0.3.1",
+    "jasmine-core": "~2.99.1",
+    "jasmine-spec-reporter": "~4.2.1",
+    "path": "^0.12.7",
+    "protractor": "~5.4.0",
+    "ts-node": "^8.5.0",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2"
+  }
+}
