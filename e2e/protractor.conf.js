@@ -23,6 +23,11 @@ exports.config = {
       ]
     }
   },
+  // multiCapabilities: [{
+  //   browserName: 'firefox'
+  // }, {
+  //     browserName: 'chrome'
+  // }],
   SELENIUM_PROMISE_MANAGER: false,
   directConnect: true,
   //seleniumServerJar: '../node_modules/protractor/node_modules/webdriver-manager/selenium/selenium-server-standalone-3.141.59.jar',

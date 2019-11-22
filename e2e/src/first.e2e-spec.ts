@@ -3,12 +3,12 @@ import { browser, logging, $, $$, by, element, ExpectedConditions as EC } from '
 describe('Protractor first test', () => {
 
   beforeEach(async () => {
-    await browser.waitForAngularEnabled(true);
-      browser.get('http://juliemr.github.io/protractor-demo/');
+    await browser.waitForAngularEnabled(false);
+    await browser.get('http://juliemr.github.io/protractor-demo/');
   });
 
   it('should have a title', async () => {
-      expect(browser.getTitle()).toEqual('Super Calculator');
+    expect(await browser.getTitle()).toEqual('Super Calculator');
   });
 
 
