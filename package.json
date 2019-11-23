@@ -7,6 +7,11 @@
     "postinstall": "webdriver-manager update --ignore_ssl=true",
     "test": "protractor e2e/protractor.conf.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iden1109/protractor-practice.git"
+  },
+  "license": "(MIT OR Apache-2.0)",
   "keywords": [],
   "devDependencies": {
     "@types/node": "^10.17.5",
