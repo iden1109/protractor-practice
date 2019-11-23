@@ -8,7 +8,7 @@ describe('Super Calculator', () => {
   let lastResult = element(by.binding('latest'));
 
   beforeEach(async () => {
-    await browser.waitForAngularEnabled(false);
+    await browser.waitForAngularEnabled(true);
     await browser.get('http://juliemr.github.io/protractor-demo/');
   });
 
