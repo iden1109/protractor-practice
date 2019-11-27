@@ -12,10 +12,7 @@ describe('try to login github fail', async () => {
   });
 
   it('should login fail', async () => {
-    await element(by.name('login')).sendKeys('idenliu');
-    await element(by.id('password')).sendKeys('micron');
-    await element(by.buttonText('Sign in')).click();
-    expect(element(by.cssContainingText('.container', 'Incorrect username or password'))).toBeTruthy();
+
   });
 
 });
