@@ -28,10 +28,10 @@ exports.config = {
   // }, {
   //     browserName: 'chrome'
   // }],
-  // SELENIUM_PROMISE_MANAGER: false,
+  SELENIUM_PROMISE_MANAGER: false,
   directConnect: true,
   //seleniumServerJar: '../node_modules/protractor/node_modules/webdriver-manager/selenium/selenium-server-standalone-3.141.59.jar',
-  baseUrl: 'https://github.com/',
+  baseUrl: 'http://localhost:4200/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
@@ -46,7 +46,7 @@ exports.config = {
     jasmine.getEnv().addReporter(new SpecReporter({
       // https://github.com/bcaudan/jasmine-spec-reporter/blob/master/src/configuration.ts
       spec: {
-        displayStacktrace: true
+        displayStacktrace: false
       }
     }));
 
