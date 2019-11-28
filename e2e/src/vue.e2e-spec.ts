@@ -1,19 +1,26 @@
 import { browser, logging, $, $$, by, element, ExpectedConditions as EC } from 'protractor';
+import { protractor } from 'protractor/built/ptor';
 
-describe('Test Vuejs', () => {
+describe('Test Vuejs', async () => {
 
   const url = 'https://vuejs.org/';
 
   beforeEach(async () => {
     await browser.waitForAngularEnabled(false);
+    await browser.get(url).catch((error) => console.log(error));
   });
 
   it('should show Server-Side Rendering when input SSR in the search form', async () => {
-    await browser.get(url);
-    await element(by.id('search-query-nav')).sendKeys('SSR');
-    await browser.sleep(1000);
-    const serverSideRendering  = element(by.className('algolia-docsearch-suggestion--subcategory-column-text'));
-    expect(await serverSideRendering.getText()).toEqual('Server-Side Rendering');
+    const searchNav = element(by.id('search-query-nav'));
+    if (await searchNav.isPresent()) {
+      await searchNav.sendKeys('SSR');
+      await browser.sleep(500);
+    }
+
+    const serverSideRendering = element.all(by.className('algolia-docsearch-suggestion--subcategory-column-text')).first();
+    const text = await serverSideRendering.getText();
+    await browser.sleep(500);
+    expect(text).toEqual('Server-Side Rendering');
   });
 
 });

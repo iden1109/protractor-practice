@@ -3,8 +3,8 @@ import { browser, by, element, $, $$, ExpectedConditions as EC } from 'protracto
 describe('try to login github fail', async () => {
 
   beforeEach(async () => {
-    browser.waitForAngularEnabled(false);
-    browser.get('https://github.com/login');
+    await browser.waitForAngularEnabled(false);
+    await browser.get('https://github.com/login');
   });
 
   it('should connect github', async () => {
@@ -15,7 +15,7 @@ describe('try to login github fail', async () => {
     await element(by.name('login')).sendKeys('idenliu');
     await element(by.id('password')).sendKeys('micron');
     await element(by.buttonText('Sign in')).click();
-    expect(element(by.cssContainingText('.container', 'Incorrect username or password'))).toBeTruthy();
+    expect(await element(by.cssContainingText('.container', 'Incorrect username or password')).isPresent()).toBeTruthy();
   });
 
 });
