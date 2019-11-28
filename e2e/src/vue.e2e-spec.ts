@@ -1,6 +1,6 @@
 import { browser, logging, $, $$, by, element, ExpectedConditions as EC } from 'protractor';
 
-describe('Test Vuejs', () => {
+describe('Test Vuejs', async () => {
 
   const url = 'https://vuejs.org/';
 
