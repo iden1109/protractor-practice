@@ -1,6 +1,6 @@
 import { browser, by, element, $, $$, Key, logging, ExpectedConditions as EC } from 'protractor';
 
-fdescribe('Fibonacci', () => {
+describe('Fibonacci', () => {
 
     const defaultTimeout = 5000; // ExpectedConditions's default timeout
 
