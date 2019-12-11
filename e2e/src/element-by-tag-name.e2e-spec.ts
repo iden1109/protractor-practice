@@ -11,7 +11,7 @@ describe('Radio Buttons', () => {
     beforeEach(async () => {
     });
 
-    it('should be select', async () => {
+    it('should be selected', async () => {
         const elem2 = element.all(by.tagName('p-radiobutton')).first().element(by.tagName('span'));
         await browser.wait(EC.elementToBeClickable(elem2), defaultTimeout,
             'Unable to find elem2 to be clickable.');
