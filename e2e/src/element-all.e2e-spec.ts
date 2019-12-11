@@ -27,8 +27,7 @@ fdescribe('Fibonacci', () => {
     });
 
     it('third number should be 2', async () => {
-        const collections = await element.all(by.id('idCollections'));
-        const thirdNumberText = await collections[2].element(by.tagName('h4')).getText();
+        const thirdNumberText = await element.all(by.id('idCollections')).get(2).element(by.tagName('h4')).getText();
 
         expect('2').toEqual(thirdNumberText);
     });
