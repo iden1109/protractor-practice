@@ -29,7 +29,7 @@ fdescribe('Fibonacci', () => {
     it('third number should be 2', async () => {
         const thirdNumberText = await element.all(by.id('idCollections')).get(2).element(by.tagName('h4')).getText();
 
-        expect('2').toEqual(thirdNumberText);
+        expect(thirdNumberText).toEqual('2');
     });
 
     afterEach(async () => {
