@@ -22,4 +22,7 @@ describe('New activities', () => {
         element(by.css('button.myclass')).click();
     });
 
+    it('should write your code here', async () => {
+
+    });
 });
