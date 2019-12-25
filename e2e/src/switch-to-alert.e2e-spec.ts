@@ -8,9 +8,6 @@ describe('New activities', () => {
         await browser.get('https://angular-e2e-demo.firebaseapp.com/');
     });
 
-    beforeEach(async () => {
-    });
-
     it('should go to google', async () => {
         const googleBtn = element(by.id('idGoGooglebutton'));
         await browser.wait(EC.elementToBeClickable(googleBtn), defaultTimeout, 'Unable to find googleBtn to be clickable.');
@@ -23,10 +20,6 @@ describe('New activities', () => {
         expect(url).toEqual('https://www.google.com/');
 
         element(by.css('button.myclass')).click();
-    });
-
-    afterEach(async () => {
-
     });
 
 });

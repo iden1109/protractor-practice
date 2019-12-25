@@ -4,6 +4,7 @@ import { compareScreenshot } from 'blue-harvest';
 describe('Google layout varify', () => {
 
     beforeAll(async () => {
+        await browser.waitForAngularEnabled(false);
         await browser.get('https://www.google.com/');
     });
 
@@ -18,7 +19,6 @@ describe('Google layout varify', () => {
       //const actual = await element(by.tagName('body')).takeScreenshot(); // no scrollbar, wait Angular stable
 
       const result = await compareScreenshot(actual, golden, diffDir);
-      await browser.waitForAngularEnabled(true);
       expect(result).toBeTruthy();
     });
 

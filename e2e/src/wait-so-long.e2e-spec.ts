@@ -1,6 +1,7 @@
 import { browser, by, element, $, $$, Key, logging, ExpectedConditions as EC } from 'protractor';
 
-describe('the user submit a questionnaire', () => {
+// This case just show how to enable Angular E2E project
+xdescribe('the user submit a questionnaire', () => {
 
   it('should type information', async () => {
     await browser.waitForAngularEnabled(false);
