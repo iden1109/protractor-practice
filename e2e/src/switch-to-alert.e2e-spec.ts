@@ -12,17 +12,17 @@ describe('New activities', () => {
     });
 
     it('should go to google', async () => {
-
-        const elem2 = element(by.id('idGoGooglebutton'));
-        await browser.wait(EC.elementToBeClickable(elem2), defaultTimeout,
-            'Unable to find elem2 to be clickable.');
-        await elem2.click();
+        const googleBtn = element(by.id('idGoGooglebutton'));
+        await browser.wait(EC.elementToBeClickable(googleBtn), defaultTimeout, 'Unable to find googleBtn to be clickable.');
+        await googleBtn.click();
         await browser.switchTo().alert().accept();
 
         await browser.waitForAngularEnabled(false);
         const url = await browser.getCurrentUrl();
 
         expect(url).toEqual('https://www.google.com/');
+
+        element(by.css('button.myclass')).click();
     });
 
     afterEach(async () => {
