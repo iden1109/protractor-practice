@@ -1,6 +1,6 @@
 import { browser, by, element, $, $$, Key, logging, ExpectedConditions as EC } from 'protractor';
 
-fdescribe('the user submit a questionnaire', () => {
+describe('the user submit a questionnaire', () => {
 
   it('should type information', async () => {
     await browser.waitForAngularEnabled(false);

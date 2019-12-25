@@ -1,11 +1,12 @@
 {
   "name": "protractor-practice",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "e2e/protractor.conf.js",
   "scripts": {
     "postinstall": "webdriver-manager update --ignore_ssl=true",
-    "test": "protractor e2e/protractor.conf.js"
+    "test": "protractor e2e/protractor.conf.js",
+    "golden": "protractor e2e/protractor-goldens.conf.js"
   },
   "repository": {
     "type": "git",
@@ -14,9 +15,9 @@
   "license": "(MIT OR Apache-2.0)",
   "keywords": [],
   "devDependencies": {
-    "@types/node": "^10.17.5",
     "@types/jasmine": "~2.8.16",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^10.17.5",
     "blue-harvest": "^0.3.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",

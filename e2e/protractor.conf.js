@@ -16,7 +16,7 @@ exports.config = {
     browserName: 'chrome',
     chromeOptions: {
       args: [
-        "--headless",
+        // "--headless",
         // "--incognito",
         // "--start-maximized"
         // "--window-size=1920,1080"
@@ -39,14 +39,31 @@ exports.config = {
     print: function() {}
   },
   async onPrepare() {
+
+    /**
+     * @type { import("protractor").ProtractorBrowser }
+     */
+    const browser = global['browser'];
+
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.json')
+    });
+
+    await jasmine.getEnv().addReporter({
+      specDone: async (result) => {
+        if (result.failedExpectations.length > 0) {
+          let png = await browser.takeScreenshot();
+          var stream = require('fs').createWriteStream(
+              "./failuretests/failureScreenshot.png");
+          stream.write(new Buffer(png, 'base64'));
+          stream.end();
+        }    }
     });
 
     jasmine.getEnv().addReporter(new SpecReporter({
       // https://github.com/bcaudan/jasmine-spec-reporter/blob/master/src/configuration.ts
       spec: {
-        displayStacktrace: false
+        displayStacktrace: true
       }
     }));
 
