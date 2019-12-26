@@ -57,9 +57,11 @@ exports.config = {
               "./failuretests/failureScreenshot.png");
           stream.write(new Buffer(png, 'base64'));
           stream.end();
-        }    }
+        }
+      }
     });
 
+    browser.driver.manage().window().setSize(1366, 1024);
     jasmine.getEnv().addReporter(new SpecReporter({
       // https://github.com/bcaudan/jasmine-spec-reporter/blob/master/src/configuration.ts
       spec: {

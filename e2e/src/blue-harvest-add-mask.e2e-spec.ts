@@ -1,5 +1,5 @@
 import { browser, by, element, $, $$, Key, logging, ExpectedConditions as EC } from 'protractor';
-import { compareScreenshot } from 'blue-harvest';
+import { compareScreenshot, addMask, removeMask } from 'blue-harvest';
 
 describe('Google layout varify', () => {
 
@@ -12,16 +12,19 @@ describe('Google layout varify', () => {
 
     });
 
-    it('should compare pages', async () => {
+    it('should compare pages with mask', async () => {
       await browser.waitForAngularEnabled(false);
       await browser.manage().window().setSize(1366, 1024);
 
-      const golden  = 'goldens/golden.png';
-      const diffDir = 'goldens/'; // diff-golden.png
+      const golden  = 'goldens/golden_mask.png';
+      const diffDir = 'goldens/'; // diff-golden_mask.png
       await browser.waitForAngular(); // MUST wait before take a screenshot
 
-      const actual = await browser.takeScreenshot(); // with scrollbar, won't wait Angular stable
-      //const actual = await element(by.tagName('body')).takeScreenshot(); // no scrollbar, wait Angular stable
+      const mask = element(by.name('q'));
+      await addMask(mask, 'gray');
+
+      const actual = await browser.takeScreenshot();
+      removeMask(mask);
 
       const result = await compareScreenshot(actual, golden, diffDir);
       expect(result).toBeTruthy();
