@@ -15,7 +15,8 @@ describe('try to login github fail', async () => {
     await element(by.name('login')).sendKeys('idenliu');
     await element(by.id('password')).sendKeys('micron');
     await element(by.buttonText('Sign in')).click();
-    expect(await element(by.cssContainingText('.container', 'Incorrect username or password')).isPresent()).toBeTruthy();
+    await browser.sleep(500);
+    expect(await element(by.id('js-flash-container')).element(by.css('.flash-error')).element(by.cssContainingText('.container-lg', 'Incorrect username or password.')).isPresent()).toBeTruthy();
   });
 
 });
